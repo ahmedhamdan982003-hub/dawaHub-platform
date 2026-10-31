@@ -55,7 +55,7 @@ which keeps the initial project simple while leaving room to grow.
    npm start
    ```
 
-5. Open <http://localhost:3000>. The database-backed readiness endpoint is
+6. Open <http://localhost:3000>. The database-backed readiness endpoint is
    available at <http://localhost:3000/api/v1/health>.
 
 Run `npm run check` to check JavaScript syntax.
