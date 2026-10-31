@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="dawahub" ng-csp="no-unsafe-eval">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dawahub</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body ng-controller="HomeController as home">
+    <main class="container">
+      <header class="site-header">
+        <p class="eyebrow">Near-expiry marketplace</p>
+        <h1>Dawahub</h1>
+      </header>
+
+      <section class="intro" aria-labelledby="welcome-heading">
+        <h2 id="welcome-heading">Less waste. Better access.</h2>
+        <p>
+          Dawahub connects local pharmacies and retailers with buyers looking
+          for discounted, in-date pharmacy and beauty products.
+        </p>
+        <p class="api-status" role="status">{{ home.status }}</p>
+      </section>
+    </main>
+
+    <script src="/vendor/angular/angular.min.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
