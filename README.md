@@ -26,23 +26,30 @@ which keeps the initial project simple while leaving room to grow.
    npm install
    ```
 
-2. Create a local environment file and update the database credentials:
+2. Create a local environment file:
 
    ```sh
    cp .env.example .env
    ```
 
-3. Create the PostgreSQL database, then apply the initial schema:
+3. As a PostgreSQL administrator, create the application user:
 
    ```sh
-   createdb dawahub
+   psql -d postgres -c "CREATE ROLE dawahub WITH LOGIN PASSWORD 'dawahub';"
+   ```
+
+4. Create the database owned by that user, then apply the initial schema:
+
+   ```sh
+   createdb --owner=dawahub dawahub
    psql "postgresql://postgres:password@localhost:5432/dawahub" \
      -f server/src/db/migrations/001_initial_schema.sql
    ```
 
-   Use the same connection string in `.env` as `DATABASE_URL`.
+   `.env.example` contains the matching `DATABASE_URL`. These credentials are
+   for local development only; use a strong password outside local development.
 
-4. Start the server:
+5. Start the server:
 
    ```sh
    npm start
